@@ -1,18 +1,13 @@
 def count_word(string):
 	punctuation = ['.',',','-','!']
-	list_word = []
 
 	for i in punctuation:
 		string = string.replace(i,'')
 
-	string = string.replace('  ',' ')
-	words = string.split(' ')
+	string = string.split()
 
-	for w in words:
-		if len(w) < 5 and w not in list_word:
-			list_word.append(w)
+	list_word = [elem for elem in string if len(elem) <5]
 	return list_word
-
 
 string = '''Было просто пасмурно, дуло с севера
 А к обеду насчитал сто градиций серого.

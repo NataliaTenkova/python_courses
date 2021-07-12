@@ -1,8 +1,8 @@
-l = [1, 4, 1, 6, "hello", "a", 5, "hello"]
-dbl = []
+input_list = [1, 4, 1, 6, "hello", "a", 5, "hello"]
+duplicates = []
 
-for i in l:
-	if l.count(i) > 1 and i not in dbl:
-		dbl.append(i)
+for elem in input_list:
+	if elem not in duplicates and input_list.count(elem) > 1:
+		duplicates.append(elem)
 
-print(dbl)
+print(duplicates)
