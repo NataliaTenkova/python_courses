@@ -1,12 +1,14 @@
-while 1 == 1:
+import re
+
+while True:
 	passwrd = input()
 	low_c = 0
 	up_c = 0
 
 	for c in passwrd:
-		if c.islower():
+		if re.match(r'[a-z]', c):
 			low_c += 1
-		else:
+		if re.match(r'[A-Z]', c):
 			up_c += 1
 
 	if len(passwrd) > 8 and low_c > 0 and up_c > 0:
