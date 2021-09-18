@@ -1,6 +1,6 @@
 import json
 
-class Model:
+class BookModel:
 	title = "First letter"
 	text = "New book"
 	author = "Ivanov"
@@ -14,5 +14,9 @@ class Model:
 		with open('attributes.json', 'w') as f:
 				json.dump(d, f)
 
-m1 = Model()
+class Journal(BookModel):
+	tirage = 3000
+
+
+m1 = Journal()
 m1.save()
