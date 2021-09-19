@@ -4,10 +4,10 @@ class StringVar:
 		self.__our_str = our_str
 
 	def set(self, new_str):
-		self._StringVar__our_str = new_str
+		self.__our_str = new_str
 
 	def get(self):
-		return self._StringVar__our_str
+		return self.__our_str
 
 
 str1 = StringVar("hello")
