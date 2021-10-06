@@ -7,24 +7,17 @@ page = requests.get('http://mfd.ru/currency/?currency=USD')
 soup = BeautifulSoup(page.text, 'html.parser')
 
 table_cur = soup.find('table', {'class':'mfd-table mfd-currency-table'})
-td = table_cur.find_all('td')
+tr = table_cur.find_all('tr')
 
 data_list = []
 value_list = []
 
-index = 1
-for t in td:
-	t = str(t)
-	if index % 3 == 1 :
-		t = t.replace('</td>', '')
-		t = t.replace('<td>с ', '')
-		data_list.append(datetime.strptime(t, "%d.%m.%Y"))
+for row in tr:
+    cols = str(row.find_all('td'))
 
-	if index % 3 == 2 :
-		t = t.replace('</td>', '')
-		t = t.replace('<td>', '')
-		value_list.append(float(t))
-	index += 1
+    if cols != "[]":
+	    value_list.append(float(cols[28:35]))
+	    data_list.append(datetime.strptime(cols[7:17], "%d.%m.%Y"))
 
 plt.plot(data_list, value_list)
 plt.show()
