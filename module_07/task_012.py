@@ -13,11 +13,10 @@ data_list = []
 value_list = []
 
 for row in tr:
-    cols = str(row.find_all('td'))
-
-    if cols != "[]":
-	    value_list.append(float(cols[28:35]))
-	    data_list.append(datetime.strptime(cols[7:17], "%d.%m.%Y"))
+    cols = row.find_all('td')
+    if len(cols) > 0:
+        data_list.append(datetime.strptime(cols[0].text[2:], "%d.%m.%Y"))
+        value_list.append(float(cols[1].text))
 
 plt.plot(data_list, value_list)
 plt.show()
