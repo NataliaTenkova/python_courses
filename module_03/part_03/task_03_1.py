@@ -5,7 +5,6 @@ res_ch = ""
 mass_str = [str(el) for el in mass]
 mass_str = sorted(mass_str, reverse = True)
 
-for el in mass_str:
-	res_ch += el
+res_ch = res_ch.join(mass_str)
 
 print(res_ch)
